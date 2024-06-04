@@ -1,6 +1,10 @@
 const express = require("express")
 const customerrorHandler = require("./Middleware/errorHandler")
 const dotenv = require("dotenv").config()
+const connectDB = require("./Config/dbConnection")
+
+//Connect to Database
+connectDB()
 
 const app = express()
 app.use(express.json())//TO ACCEPT JSON DATA
@@ -16,6 +20,7 @@ const port = process.env.PORT || 5000
 // })
 
 app.use("/api/contacts",require("./routes/contactRoutes"))
+//After route we use custom error handler
 app.use(customerrorHandler)
 
 app.listen(port,()=>{
