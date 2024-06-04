@@ -1,6 +1,11 @@
 const express = require("express")
-const { getAllContacts, createNewContact, updateContact, deleteContact, getContacts } = require("../Controllers/contactController")
 const router = express.Router()
+
+const { getAllContacts,
+        createNewContact,
+        updateContact,
+        deleteContact,
+        getContacts } = require("../Controllers/contactController")
 
 
 // router.get("/",getAllContacts)

@@ -1,21 +1,28 @@
+const asyncHandler = require("express-async-handler")
 
-const getAllContacts = ((req,res)=>{
+const getAllContacts = asyncHandler((req,res)=>{
     res.send("Get All Contacts")
 })
 
-const createNewContact = ((req,res)=>{
+const createNewContact = asyncHandler((req,res)=>{
+    if(req.body.Name == null || req.body.Email == null){
+        res.status(400)
+        throw new Error("Name and Email are required")
+    }
+
+    console.log(req.body)
     res.send("Create New Contacts")
 })
 
-const updateContact = ((req,res)=>{
+const updateContact = asyncHandler((req,res)=>{
     res.send(`Update Contact with Id ${req.params.id}`)
 })
 
-const deleteContact = ((req,res)=>{
+const deleteContact = asyncHandler((req,res)=>{
     res.send(`Delete Contact with Id ${req.params.id}`)
 })
 
-const getContacts = ((req,res)=>{
+const getContacts = asyncHandler((req,res)=>{
     res.send(`Get Contact of Id ${req.params.id}`)
 })
 
