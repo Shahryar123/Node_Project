@@ -20,6 +20,7 @@ const port = process.env.PORT || 5000
 // })
 
 app.use("/api/contacts",require("./routes/contactRoutes"))
+app.use("/api/user",require("./routes/userRoutes.js"))
 //After route we use custom error handler
 app.use(customerrorHandler)
 
